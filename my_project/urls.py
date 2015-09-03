@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import RedirectView
+
+from app1 import urls as app1_urls  # Import for app1 urls
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^app1/', include('app1.urls')),
+    url(r'^$', RedirectView.as_view(url='app1', permanent=True)), # Redirect base URL to app1
+    url(r'^app1/', include(app1_urls), name='app1'),
 ]
