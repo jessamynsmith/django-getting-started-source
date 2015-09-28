@@ -11,3 +11,15 @@ This project is best used as a check when working through the django-getting-sta
 1. Fork project
 1. Clone your fork
 1. pip install requirements.txt
+
+
+### Running tests
+
+1. Run using manage.py
+
+		python manage.py test
+		
+1. Generate and view test coverage
+
+    coverage run --source=. manage.py test
+    coverage report
