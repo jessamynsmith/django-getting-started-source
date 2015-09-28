@@ -6,15 +6,17 @@ class OpenWeatherMap(object):
     def __init__(self):
         self.api_url = 'http://api.openweathermap.org/data/2.5/'
 
-    def get_forecast(self):
+    def get_forecast(self, city='', country=''):
         # Append the "forecast" path to the base API URL
         url = '%sforecast' % self.api_url
 
         # URL parameters
-        params = {
-            'lat': -33.8650,
-            'lon': 151.2094
-        }
+        params = {}
+        if city and country:
+            params['q'] = '%s,%s' % (city, country)
+        else:
+            params['lat'] = -33.8650
+            params['lon'] = 151.2094
 
         # Do a get request on the forecast url, with the lat/lon params
         response = requests.get(url, params=params)

@@ -6,6 +6,11 @@
 <body>
 <h3>Weather Forecast</h3>
 
+<form>
+  {{ form }}
+  <input type="submit" value="Find Weather">
+</form>
+
 <div>
   {% if forecast %}
 
@@ -21,7 +26,7 @@
       <hr>
     {% endfor %}
   {% else %}
-    No weather information found. :(
+    <h4>Enter a valid location to see weather info!</h4>
   {% endif %}
 </div>
 
