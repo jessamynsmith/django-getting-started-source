@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from libs.open_weather_map import OpenWeatherMap
+from libs.open_weather_map.wrapper import OpenWeatherMap
 from app1 import forms as app1_forms
 
 
