@@ -13,7 +13,7 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.urls import include, path
 from django.contrib import admin
 from django.views.generic import RedirectView
 
@@ -21,7 +21,7 @@ from app1 import urls as app1_urls  # Import for app1 urls
 
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', RedirectView.as_view(url='app1', permanent=True)), # Redirect base URL to app1
-    url(r'^app1/', include(app1_urls), name='app1'),
+    path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(url='app1', permanent=True)),  # Redirect base URL to app1
+    path('app1/', include(app1_urls)),
 ]
